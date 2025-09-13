@@ -1,79 +1,116 @@
-/* General reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body and layout */
+/* Body */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.7;
+  background: #ffffff;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Header */
 header {
-  background: #004466;
-  color: #fff;
-  padding: 1rem;
+  background: linear-gradient(135deg, #111111, #333333);
+  color: #ffffff;
+  padding: 2rem 1rem;
   text-align: center;
+  border-bottom: 3px solid #111111;
 }
 
 header h1 {
+  font-size: 2.2rem;
+  letter-spacing: -0.5px;
   margin-bottom: 0.5rem;
 }
 
+nav {
+  margin-top: 0.5rem;
+}
+
 nav a {
-  color: #fff;
-  margin: 0 0.8rem;
+  color: #ffffff;
+  margin: 0 1rem;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-nav a.active,
-nav a:hover {
-  text-decoration: underline;
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
 }
 
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* Layout */
 main {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
 }
 
+/* Hero */
 .hero {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .hero h2 {
-  font-size: 2rem;
-  color: #004466;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111111;
 }
 
 .hero p {
   font-size: 1.2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
+  color: #444444;
 }
 
+/* Sections & Cards */
 .intro, .app, section {
-  background: #fff;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: #ffffff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.intro:hover, .app:hover, section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* Lists */
 ul {
   list-style-type: disc;
   padding-left: 1.5rem;
 }
 
+/* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
-  background: #004466;
-  color: #fff;
-  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #111111;
+  color: #ffffff;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
 }
