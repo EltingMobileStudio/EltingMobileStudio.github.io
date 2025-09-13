@@ -107,6 +107,20 @@ ul {
   padding-left: 1.5rem;
 }
 
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.app-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 /* Footer */
 footer {
   text-align: center;
