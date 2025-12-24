@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elting - Modern Mobile Apps</title>
+    <title>Walleco by Elting - Modern Mobile Apps</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -51,9 +51,37 @@
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0px); }
         }
+
+        /* Custom Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #10b981;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-slate-50">
+
+    <!-- Notification Toast -->
+    <div id="toast"><i class="fas fa-check-circle mr-2"></i> Message sent successfully!</div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300" id="navbar">
@@ -61,10 +89,10 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <!-- IMAGE UPDATE: Logo File -->
-                    <!-- Assuming 9ebcd3c3... is the logo. If it's the screen, swap with the other file. -->
                     <img src="img/walleco.jpg" alt="Walleco Logo" class="h-10 w-auto object-contain rounded-lg">
-                    <span class="font-bold text-2xl tracking-tight text-slate-900">Elting</span>
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">
+                        Walleco <span class="text-sm font-normal text-slate-500 ml-1">by Elting</span>
+                    </span>
                 </div>
 
                 <!-- Desktop Menu -->
@@ -98,7 +126,8 @@
     </nav>
 
     <!-- Hero Section (Home) -->
-    <section id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative">
+    <!-- CHANGED: Reduced top padding (pt-24 instead of pt-32/48) to move text higher -->
+    <section id="home" class="pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden relative">
         <div class="absolute top-0 right-0 -z-10 opacity-30">
             <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path fill="#3B82F6" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-46.3C87.4,-33.5,90.1,-18,88.5,-3.3C86.9,11.4,81,25.3,71.8,37.1C62.6,48.9,50.1,58.6,37.1,65.6C24.1,72.6,10.6,76.9,-1.9,80.2C-14.4,83.5,-29.8,85.8,-42.6,79.6C-55.4,73.4,-65.6,58.7,-73.3,43.6C-81,28.5,-86.2,12.9,-84.3,-1.9C-82.4,-16.7,-73.4,-30.7,-62.7,-41.6C-52,-52.5,-39.6,-60.3,-27,-66.5C-14.4,-72.7,-1.6,-77.3,12.2,-78.9C26,-80.5,30.5,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
@@ -120,10 +149,12 @@
                         Elting is a software house focused on FinTech solutions. Our mission is to provide intuitive tools that help people take control of their finances.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                        <a href="#products" class="px-8 py-4 bg-brand-primary text-white rounded-lg hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 font-semibold text-lg flex items-center justify-center gap-2">
-                            Meet Walleco <i class="fas fa-arrow-right text-sm"></i>
+                        <!-- CHANGED: Added image inside the button -->
+                        <a href="#products" class="px-6 py-4 bg-brand-primary text-white rounded-lg hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 font-semibold text-lg flex items-center justify-center gap-3">
+                            <img src="img/walleco.jpg" alt="icon" class="w-8 h-8 rounded-full border-2 border-white/30">
+                            Meet Walleco 
                         </a>
-                        <a href="#contact" class="px-8 py-4 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition font-semibold text-lg">
+                        <a href="#contact" class="px-8 py-4 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition font-semibold text-lg flex items-center justify-center">
                             Contact Us
                         </a>
                     </div>
@@ -138,8 +169,6 @@
                         
                         <!-- Screen Image -->
                         <div class="w-full h-full bg-slate-50 flex items-center justify-center overflow-hidden">
-                            <!-- IMAGE UPDATE: App Screen File -->
-                            <!-- Assuming 0ae422c6... is the screen screenshot. -->
                             <img src="img/walleco-screen.jpg" alt="Walleco App Screen" class="w-full h-full object-cover">
                         </div>
                     </div>
@@ -198,20 +227,33 @@
             </div>
 
             <!-- Download CTA -->
-            <div class="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 text-center md:text-left relative overflow-hidden">
+            <div class="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-white opacity-5 rounded-full blur-2xl"></div>
                 <div class="md:flex items-center justify-between relative z-10">
                     <div class="mb-8 md:mb-0">
                         <h4 class="text-2xl md:text-3xl font-bold text-white mb-2">Start saving with Walleco</h4>
-                        <p class="text-slate-400">Coming soon to iOS and Android.</p>
+                        <p class="text-slate-400">Download the app today.</p>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition flex items-center justify-center gap-2">
-                            <i class="fab fa-apple text-xl"></i> App Store
-                        </button>
-                        <button class="bg-transparent border border-slate-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition flex items-center justify-center gap-2">
-                            <i class="fab fa-google-play text-xl"></i> Google Play
-                        </button>
+                    <div class="flex flex-col sm:flex-row gap-6 items-center">
+                        
+                        <!-- Available: Google Play -->
+                        <div>
+                            <button class="bg-transparent border border-slate-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition flex items-center justify-center gap-2 w-full sm:w-auto">
+                                <i class="fab fa-google-play text-xl"></i> Google Play
+                            </button>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="h-8 w-px bg-slate-700 hidden sm:block"></div>
+
+                        <!-- Coming Soon: App Store -->
+                        <div class="flex flex-col items-center">
+                            <span class="text-xs text-brand-primary uppercase font-bold tracking-wider mb-1">Coming Soon</span>
+                            <button class="bg-slate-800/50 text-slate-400 px-6 py-3 rounded-xl font-bold cursor-not-allowed flex items-center justify-center gap-2 border border-transparent w-full sm:w-auto">
+                                <i class="fab fa-apple text-xl"></i> App Store
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -225,22 +267,19 @@
             <p class="text-lg text-slate-600 leading-relaxed mb-8">
                 We are a young, dynamic team of developers and financial analysts. At Elting, we believe technology should simplify life. Our code is clean, and our design is functional. We don't just build apps – we build tools for better life management.
             </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <span class="block text-3xl font-bold text-brand-primary">2+</span>
-                    <span class="text-sm text-slate-500">Years Experience</span>
-                </div>
-                <div class="text-center">
+            <!-- CHANGED: Grid cols to 3, removed Experience block -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-4 bg-white rounded-xl shadow-sm">
                     <span class="block text-3xl font-bold text-brand-primary">100%</span>
-                    <span class="text-sm text-slate-500">Commitment</span>
+                    <span class="text-sm text-slate-500 font-medium">Commitment</span>
                 </div>
-                <div class="text-center">
+                <div class="text-center p-4 bg-white rounded-xl shadow-sm">
                     <span class="block text-3xl font-bold text-brand-primary">24/7</span>
-                    <span class="text-sm text-slate-500">System Monitoring</span>
+                    <span class="text-sm text-slate-500 font-medium">System Monitoring</span>
                 </div>
-                <div class="text-center">
+                <div class="text-center p-4 bg-white rounded-xl shadow-sm">
                     <span class="block text-3xl font-bold text-brand-primary">PL</span>
-                    <span class="text-sm text-slate-500">Polish Capital</span>
+                    <span class="text-sm text-slate-500 font-medium">Polish Capital</span>
                 </div>
             </div>
         </div>
@@ -281,11 +320,25 @@
 
                         <div class="flex items-start gap-4">
                             <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-brand-primary text-xl flex-shrink-0">
-                                <i class="fab fa-linkedin-in"></i>
+                                <i class="fas fa-share-alt"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900">Social Media</h4>
-                                <a href="#" class="text-slate-600 hover:text-brand-primary transition">Follow us on LinkedIn</a>
+                                <h4 class="font-bold text-slate-900 mb-2">Social Media</h4>
+                                <!-- CHANGED: Removed LinkedIn, added FB, Insta, TikTok, YT -->
+                                <div class="flex gap-4">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition duration-300" title="Facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-pink-600 hover:text-white transition duration-300" title="Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition duration-300" title="TikTok">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition duration-300" title="YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -370,6 +423,14 @@
             });
         });
 
+        // Toast Notification Function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.className = 'show';
+            setTimeout(function(){ toast.className = toast.className.replace('show', ''); }, 3000);
+        }
+
         // Simple form handling
         function handleFormSubmit(e) {
             e.preventDefault();
@@ -381,7 +442,8 @@
             btn.classList.remove('bg-brand-primary');
             btn.classList.add('bg-green-500');
             
-            alert('Thank you for your message! We will reply shortly.');
+            // Replaced alert with custom toast
+            showToast('Thank you for your message! We will reply shortly.');
             
             // Reset form
             e.target.reset();
