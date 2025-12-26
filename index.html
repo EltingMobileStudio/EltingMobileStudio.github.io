@@ -89,7 +89,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <img src="img/walleco.jpg" alt="Walleco Logo" class="h-10 w-auto object-contain rounded-lg">
+                    <img src="img/walleco.jpg" alt="Walleco Logo" class="h-10 w-auto object-contain rounded-lg" onerror="this.src='https://placehold.co/40x40?text=W'">
                     <span class="font-bold text-2xl tracking-tight text-slate-900">
                         Walleco <span class="text-sm font-normal text-slate-500 ml-1">by Elting</span>
                     </span>
@@ -126,7 +126,6 @@
     </nav>
 
     <!-- Hero Section (Home) -->
-    <!-- CHANGED: Reduced top padding (pt-24 instead of pt-32/48) to move text higher -->
     <section id="home" class="pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden relative">
         <div class="absolute top-0 right-0 -z-10 opacity-30">
             <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -148,20 +147,15 @@
                     <p class="mt-4 text-lg text-slate-600 mb-8 leading-relaxed">
                         Elting is a software house focused on FinTech solutions. Our mission is to provide intuitive tools that help people take control of their finances.
                     </p>
+                    
+                    <!-- MODIFIED BUTTONS: Single Button as requested -->
                     <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                        <!-- New Download Button -->
-                        <a href="#download" class="px-8 py-4 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 font-semibold text-lg flex items-center justify-center gap-2">
-                            Download <i class="fas fa-download text-sm"></i>
-                        </a>
-                        
-                        <!-- CHANGED: Removed image, restored arrow icon -->
-                        <a href="#products" class="px-8 py-4 bg-brand-primary text-white rounded-lg hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 font-semibold text-lg flex items-center justify-center gap-2">
-                            Meet Walleco <i class="fas fa-arrow-right text-sm"></i>
-                        </a>
-                        <a href="#contact" class="px-8 py-4 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition font-semibold text-lg flex items-center justify-center">
-                            Contact Us
+                        <a href="https://play.google.com/store/apps/details?id=com.walleo.budget_app" target="_blank" class="px-8 py-4 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition shadow-lg shadow-slate-900/20 font-semibold text-lg flex items-center justify-center gap-2 transform hover:scale-105 duration-200">
+                            <i class="fab fa-google-play text-xl text-green-400"></i> Download on Google Play
                         </a>
                     </div>
+                    <!-- End of modified buttons -->
+
                 </div>
                 
                 <!-- Mockup / Illustration -->
@@ -173,7 +167,7 @@
                         
                         <!-- Screen Image -->
                         <div class="w-full h-full bg-slate-50 flex items-center justify-center overflow-hidden">
-                            <img src="img/walleco-screen.jpg" alt="Walleco App Screen" class="w-full h-full object-cover">
+                            <img src="img/walleco-screen.jpg" alt="Walleco App Screen" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/300x600/3b82f6/ffffff?text=App+Screen'">
                         </div>
                     </div>
                     
@@ -187,9 +181,8 @@
     <!-- Products Section (Walleco) -->
     <section id="products" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- CHANGED: Moved logo here, layout changed to flex row for side-by-side view -->
             <div class="max-w-4xl mx-auto mb-16 flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
-                <img src="img/walleco.jpg" alt="Walleco Logo" class="w-24 h-24 rounded-2xl shadow-xl object-contain ring-1 ring-slate-900/5">
+                <img src="img/walleco.jpg" alt="Walleco Logo" class="w-24 h-24 rounded-2xl shadow-xl object-contain ring-1 ring-slate-900/5" onerror="this.src='https://placehold.co/100x100?text=W'">
                 <div>
                     <h2 class="text-brand-primary font-bold tracking-wide uppercase text-sm mb-2">Main Product</h2>
                     <h3 class="text-3xl font-extrabold text-slate-900 sm:text-4xl mb-4">Meet <span class="text-slate-900">Walleco</span></h3>
@@ -239,7 +232,6 @@
                 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-white opacity-5 rounded-full blur-2xl"></div>
                 <div class="md:flex items-center justify-between relative z-10">
                     
-                    <!-- CHANGED: Removed logo from here, reverted to simple text block -->
                     <div class="mb-8 md:mb-0 text-center md:text-left">
                         <h4 class="text-2xl md:text-3xl font-bold text-white mb-2">Start saving with Walleco</h4>
                         <p class="text-slate-400">Download the app today.</p>
@@ -278,7 +270,6 @@
             <p class="text-lg text-slate-600 leading-relaxed mb-8">
                 We are a young, dynamic team of developers and financial analysts. At Elting, we believe technology should simplify life. Our code is clean, and our design is functional. We don't just build apps – we build tools for better life management.
             </p>
-            <!-- CHANGED: Grid cols to 3, removed Experience block -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="text-center p-4 bg-white rounded-xl shadow-sm">
                     <span class="block text-3xl font-bold text-brand-primary">100%</span>
@@ -335,7 +326,6 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-900 mb-2">Social Media</h4>
-                                <!-- CHANGED: Removed LinkedIn, added FB, Insta, TikTok, YT -->
                                 <div class="flex gap-4">
                                     <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition duration-300" title="Facebook">
                                         <i class="fab fa-facebook-f"></i>
